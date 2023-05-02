@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.criminalintent.databinding.ListItemModelBinding
+import com.example.criminalintent.databinding.PhotoItemBinding
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -28,6 +29,8 @@ class IntentListAdapter: RecyclerView.Adapter<IntentListAdapter.IntentHolder>() 
             }
             Glide.with(im.rootView.context).asBitmap().load(photo.url_s).override( 150, 150 ).thumbnail( 0.5f ).diskCacheStrategy(
                 DiskCacheStrategy.NONE).dontTransform().centerCrop().placeholder(R.drawable.sample_bitmap).error(R.drawable.black_box).into(im)
+
+            tvTitle.text = photo.title
         }
 
 
